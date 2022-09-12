@@ -1,0 +1,35 @@
+<head>
+    <title>Library Book System</title>
+    <link href="css/styles.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container">
+            <form action="/addbook" method="post">
+                <fieldset>
+                    <legend>Book System</legend>
+                    <!-- Add a book -->
+                    <p id="addBook">Add a Book</p>
+                    <label>Book Name</label>
+                    <input id="bookInput" type="text" name="newbook" placeholder="Name of book" autocomplete="off">
+                    <label>Author's Name</label>
+                    <input type="text" name="newbookAuth" placeholder="Name of author" autocomplete="off">
+                    <button>Add Book</button>
+        
+                    <!-- Added book to display -->
+                    <p>Available Books</p>
+                    <% for (var i = 0; i < book.length; i++) { %>
+                    <li><input type="checkbox" name="check" value="<%= book[i] %>"/> <%= book[i] %></li>
+                    <% } %>
+                    <button formaction="/checkoutbook" id="top">Checkout Book</button>
+        
+                    <!-- Checked out books -->
+                    <p>Checked Out Books</p>
+                    <% for (var i = 0; i < checkedout.length; i++) { %>
+                    <li><input type="checkbox" name="checked" value="<%= checkedout[i] %>"/> <%= checkedout[i] %></li>
+                    <% } %>
+                    <button formaction="/returnbook" type="submit">Return Book</button>
+                </fieldset>
+            </form>
+        </div>
+    </body>
